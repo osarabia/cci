@@ -23,7 +23,7 @@ def string_compression(astring):
             letters.append(prev)
             letters.append(str(count))
 
-    if len(letters) < len(astring):
+    if len(letters) > 0 and len(letters) < len(astring):
         return "".join(letters)
 
     return astring
@@ -33,7 +33,9 @@ class Test(unittest.TestCase):
     '''Test Cases'''
     data = [
         ('aabcccccaaa', 'a2b1c5a3'),
-        ('abcdef', 'abcdef')
+        ('abcdef', 'abcdef'),
+        ('a', 'a'),
+        ('bb', 'bb')
     ]
 
     def test_string_compression(self):
